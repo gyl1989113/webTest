@@ -1,11 +1,11 @@
-FROM node:16
+FROM docker.m.daocloud.io/node:16
 
 WORKDIR /gva_web/
 COPY . .
 
 RUN yarn && yarn build
 
-FROM nginx:alpine
+FROM docker.m.daocloud.io/nginx:alpine
 LABEL MAINTAINER="SliverHorn@sliver_horn@qq.com"
 
 COPY .docker-compose/nginx/conf.d/my.conf /etc/nginx/conf.d/my.conf
